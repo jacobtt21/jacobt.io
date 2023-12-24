@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden">
 
-      <section className="sm:flex hidden fixed p-4 w-full top-0 z-0">
+      <section className="sm:flex hidden fixed p-4 w-full top-0 z-20">
         <div className="w-full sm:w-[50%] flex items-center bg-slate-200 rounded-full flex justify-between mt-12 mx-auto px-8 py-4">
           <Link href="/" className="font-semibold">Essays</Link>
           <Link href="https://twitter.com/0xjacobt" className="font-semibold flex items-center gap-2"><FaXTwitter /> Twitter</Link>
@@ -18,7 +18,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sm:hidden flex fixed p-4 w-full top-0 z-0">
+      <section className="sm:hidden flex fixed p-4 w-full top-0 z-20">
         <div className="w-full sm:w-[50%] flex items-center bg-slate-200 rounded-full flex justify-between mt-12 mx-auto px-8 py-4">
           <Link href="/" className="font-semibold">Essays</Link>
           <Link href="https://twitter.com/0xjacobt" className="font-semibold flex items-center gap-2"><FaXTwitter /></Link>
@@ -30,7 +30,7 @@ export default function Home() {
       <section className="relative z-0">
         <div className="w-full sm:w-[50%] mx-auto p-4">
           <div className="flex items-center gap-5">
-            <div className="bg-gradient-to-r from-indigo-500 to-indigo-300 rounded-full h-12 w-12"></div>
+            <div className="bg-gradient-to-r from-indigo-500 to-indigo-300 rounded-full h-12 w-12 -z-10"></div>
             <div>
               <h2 className="text-xl font-semibold">Jacob Thomas</h2>
               <p className="text-xs text-gray-500"><Link href="https://twitter.com/oustrohq" className="underline">@Oustro</Link> CEO</p>
