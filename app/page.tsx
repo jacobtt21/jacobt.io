@@ -11,7 +11,7 @@ export default function Home() {
             
             <div>
               <h2 className="text-xl font-semibold">Jacob Thomas</h2>
-              <p className="text-sm text-gray-600">Founder/CEO @ Oustro</p>
+              <p className="text-sm text-gray-600"><Link href="https://twitter.com/oustrohq" className="underline">@Oustro</Link> CEO</p>
             </div>
 
           </div>
