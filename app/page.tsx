@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Poppins } from "next/font/google"
-import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] })
 
@@ -11,23 +11,23 @@ export default function Home() {
 
       <section className="sm:flex hidden fixed p-4 w-full top-0 z-20">
         <div className="w-full sm:w-[50%] flex items-center bg-slate-200 rounded-full flex justify-between mt-12 mx-auto px-8 py-4">
-          <Link href="/" className="font-semibold">Essays</Link>
-          <Link href="https://twitter.com/0xjacobt" className="font-semibold flex items-center gap-2"><FaXTwitter /> Twitter</Link>
-          <Link href="https://github.com/jacobtt21" className="font-semibold flex items-center gap-2"><FaGithub /> Github</Link>
-          <Link href="https://www.linkedin.com/in/jacobt1206/" className="font-semibold flex items-center gap-2"><FaLinkedin /> Linkedin</Link>
+          <Link href="/" className="">Essays</Link>
+          <Link href="https://twitter.com/0xjacobt" className="flex items-center gap-2"><FaTwitter /> Twitter</Link>
+          <Link href="https://github.com/jacobtt21" className="flex items-center gap-2"><FaGithub /> Github</Link>
+          <Link href="https://www.linkedin.com/in/jacobt1206/" className="flex items-center gap-2"><FaLinkedin /> Linkedin</Link>
         </div>
       </section>
 
       <section className="sm:hidden flex fixed p-4 w-full top-0 z-20">
         <div className="w-full sm:w-[50%] flex items-center bg-slate-200 rounded-full flex justify-between mt-12 mx-auto px-8 py-4">
-          <Link href="/" className="font-semibold">Essays</Link>
-          <Link href="https://twitter.com/0xjacobt" className="font-semibold flex items-center gap-2"><FaXTwitter /></Link>
+          <Link href="/" className="">Essays</Link>
+          <Link href="https://twitter.com/0xjacobt" className="font-semibold flex items-center gap-2"><FaTwitter /></Link>
           <Link href="https://github.com/jacobtt21" className="font-semibold flex items-center gap-2"><FaGithub /></Link>
           <Link href="https://www.linkedin.com/in/jacobt1206/" className="font-semibold flex items-center gap-2"><FaLinkedin /></Link>
         </div>
       </section>
       
-      <section className="relative z-0">
+      <section className="relative mt-20 z-0">
         <div className="w-full sm:w-[50%] mx-auto p-4">
           <div className="flex items-center gap-5">
             <div className="bg-gradient-to-r from-indigo-500 to-indigo-300 rounded-full h-12 w-12 -z-10"></div>
@@ -76,6 +76,14 @@ export default function Home() {
               </span>          
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="flex text-xs text-gray-500 p-4 sm:p-16 justify-between items-center">
+        <Link className="underline" href="https://github.com/jacobtt21/jacobt.io">Source</Link>
+        <div className="text-right">
+          <p>Made with ❤️ in TX</p>
+          <p>&copy; 2024 Jacob Thomas</p>
         </div>
       </section>
     </main>
