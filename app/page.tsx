@@ -51,6 +51,10 @@ export default function Home() {
       localStorage.setItem("theme", "dark")
       setTheme("dark")
     }
+    else {
+      localStorage.setItem("theme", "dark")
+      setTheme("dark")
+    }
   }
 
   const [theme, setTheme] = useState<undefined | null | string>(undefined)
