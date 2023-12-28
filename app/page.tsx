@@ -19,7 +19,8 @@ export default function Home() {
       picture: "/songs/wp.png",
       alt: "Sweet Actions by Jack Harlow Album Cover",
       contrast: false,
-      link: "https://www.youtube.com/watch?v=w9uWPBDHEKE"
+      link: "https://www.youtube.com/watch?v=w9uWPBDHEKE",
+      label: "Link to the youtube video of WHATS POPPIN by Jack Harlow"
     },
     {
       title: "MONACO",
@@ -27,7 +28,8 @@ export default function Home() {
       picture: "/songs/monaco.png",
       alt: "Nadie Sabe Lo Que Va a Pasar Mañana by Bad Bunny Album Cover",
       contrast: false,
-      link: "https://www.youtube.com/watch?v=_PJvpq8uOZM"
+      link: "https://www.youtube.com/watch?v=_PJvpq8uOZM",
+      label: "Link to the youtube video of MONACO by Bad Bunny"
     },
     {
       title: "Yes Indeed",
@@ -35,7 +37,8 @@ export default function Home() {
       picture: "/songs/yi.png",
       alt: "Harder Than Ever by Lil Baby Album Cover",
       contrast: false,
-      link: "https://www.youtube.com/watch?v=QknbZV_suzg"
+      link: "https://www.youtube.com/watch?v=QknbZV_suzg",
+      label: "Link to the youtube video of Yes Indeed by Lil Baby, Drake"
     },
     {
       title: "On The Radar Freestyle",
@@ -43,7 +46,8 @@ export default function Home() {
       picture: "/songs/otrf.png",
       alt: "On The Radar Freestyle by Drake, Central Cee Single Cover",
       contrast: true,
-      link: "https://www.youtube.com/watch?v=cfX1QlfxTBI"
+      link: "https://www.youtube.com/watch?v=cfX1QlfxTBI",
+      label: "Link to the youtube video of On The Radar Freestyle by Drake, Central Cee"
     },
   ]
 
@@ -131,7 +135,7 @@ export default function Home() {
             {covers.map((cover, index) => (
               <li key={index}>
                 <div className="rounded-xl w-48">
-                  <Link href={cover.link}>
+                  <Link aria-label={cover.label} href={cover.link}>
                     <Image
                     src={cover.picture}
                     alt={cover.alt}
@@ -153,7 +157,7 @@ export default function Home() {
             {covers.map((cover, index) => (
               <li key={index}>
                 <div className="rounded-xl w-48">
-                  <Link href={cover.link}>
+                  <Link aria-label={cover.label} href={cover.link}>
                     <Image
                     src={cover.picture}
                     alt={cover.alt}
