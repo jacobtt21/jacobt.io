@@ -70,7 +70,7 @@ export default function Home() {
   return (
     <main className={`relative min-h-screen justify-center overflow-hidden transition-all ${theme === "dark" && "bg-slate-900 text-slate-400"}`}>
 
-      <section className="p-4 w-full z-20">
+      <section className="sm:mt-6 p-4 w-full z-20">
         <div className="bg-gradient-to-r from-indigo-500 to-indigo-300 mx-auto w-full sm:w-[50%] p-[1px] rounded-lg">
           <div className={`sm:flex items-center rounded-lg text-center sm:justify-between px-4 py-1 ${theme === "dark" ? "bg-slate-800" : "bg-slate-100"}`}>
             <Link aria-label="Link to the homepage of Jacob Thomas" href="/"><code className="text-lg">hi@jacobt.io:~/$</code></Link>
