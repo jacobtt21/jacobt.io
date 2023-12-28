@@ -200,7 +200,7 @@ export default function Home() {
       <section className="w-full sm:w-[50%] mx-auto">
         <h3 className="mt-8 px-4 text-xl font-semibold">Featured Work</h3>
         <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Stuff I&apos;ve shipped and am proud of. Feel free to check it out.</p>
-        <div className="grid sm:grid-cols-2 gap-4 px-4">
+        <div className="grid mt-6 sm:grid-cols-2 gap-4 px-4">
           {projects.map((project, index) => (
             <Link aria-label={project.label} onClick={addClick(project.name)} href={project.link} key={index}>
               <div className="group bg-gradient-to-r from-indigo-500 to-indigo-300 p-[1px] rounded-lg">
@@ -224,7 +224,7 @@ export default function Home() {
       </section>
 
       <section aria-label="This section is a carousel of both album covers and movie posters, they are rotating." className="w-full sm:w-[50%] mx-auto">
-        <h3 className={`mt-12 border-t pt-4 px-4 text-xl font-semibold ${theme === "dark" ? "border-slate-700" : "border-slate-300"}`}>The Playlist</h3>
+        <h3 className={`mt-12 border-t pt-6 px-4 text-xl font-semibold ${theme === "dark" ? "border-slate-700" : "border-slate-300"}`}>The Playlist</h3>
         <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Music I enjoy, click to play.</p>
         <div className="group w-full inline-flex mt-6 flex-nowrap overflow-hidden sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
