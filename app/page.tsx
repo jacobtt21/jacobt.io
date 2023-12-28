@@ -179,7 +179,7 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <p className={`text-md mt-8 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Product enthusiast, creative, and investor based in Texas.</p>
+            <p className={`text-md mt-8 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Product enthusiast, creative, and founder based in Texas.</p>
             <p className={`text-md mt-8 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>I am passionate about technology and design. I believe there is more to come, and I am excited to contribute.</p>
             <p className={`text-md mt-8 text-md mt-10 flex items-center ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>
               Currently working on
