@@ -100,7 +100,7 @@ export default function Home() {
             <p className={`text-md mt-8 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>I am passionate about technology and design. I believe there is more to come, and I am excited to contribute.</p>
             <p className={`text-md mt-8 text-md mt-10 flex items-center ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>
               Currently working at 
-              <Link aria-label="Link to oustro.xyz" href="https://www.oustro.xyz" className={`ml-1.5 flex gap-0.5 items-center ${theme === "light" && "text-black"}`}>
+              <Link aria-label="Link to oustro.xyz" href="https://www.oustro.xyz" className={`ml-1 flex gap-0.5 items-center ${theme === "light" && "text-black"}`}>
                 <Image
                 src="/oustro-logo.svg"
                 alt="Oustro, LLC Logo"
@@ -109,7 +109,7 @@ export default function Home() {
                 />
                 <span className={poppins.className}>Oustro</span>
               </Link>, on 
-              <Link aria-label="Link to useziggy.com" href="https://www.useziggy.com" className={`ml-1.5 flex gap-2 font-semibold items-center ${theme === "light" && "text-black"}`}>
+              <Link aria-label="Link to useziggy.com" href="https://www.useziggy.com" className={`ml-1 flex gap-2 font-semibold items-center ${theme === "light" && "text-black"}`}>
                 <Image
                 src="/ziggy-logo.svg"
                 alt="Ziggy by Oustro, LLC logo"
