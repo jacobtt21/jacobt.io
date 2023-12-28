@@ -108,6 +108,8 @@ export default function Home() {
     const clicks = await kv.get(name)
     const newClicks = (clicks as number) + 1
     await kv.set(name, newClicks)
+    
+    getViews()
   }
 
   const getViews = async () => {
