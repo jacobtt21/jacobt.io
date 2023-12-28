@@ -196,7 +196,7 @@ export default function Home() {
 
       <section className="w-full sm:w-[50%] mx-auto">
         <h3 className="mt-12 px-4 text-xl font-semibold">Featured Work</h3>
-        <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Work I've shipped that I am proud of. Feel free to check them out.</p>
+        <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Work I&apos;ve shipped that I am proud of. Feel free to check them out.</p>
         <div className="grid sm:grid-cols-2 gap-4 px-4">
           {projects.map((project, index) => (
             <Link onClick={addClick(project.name)} href={project.link} key={index}>
