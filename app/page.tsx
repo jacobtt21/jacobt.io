@@ -61,7 +61,7 @@ export default function Home() {
       link: "https://www.oustro.xyz",
       alt: "Oustro, LLC Logo",
       image: "/oustro-logo.svg",
-      clicks: 0
+      label: "Link to oustro.xyz",
     },
     {
       name: "Ziggy",
@@ -69,7 +69,7 @@ export default function Home() {
       link: "https://www.useziggy.com",
       alt: "Ziggy Logo",
       image: "/ziggy-logo.svg",
-      clicks: 0
+      label: "Link to useziggy.com",
     },
     {
       name: "jacobt.io",
@@ -77,7 +77,7 @@ export default function Home() {
       link: "https://www.jacobt.io",
       alt: "Jacob Thomas Logo",
       image: "/jacobt-logo.png",
-      clicks: 0
+      label: "Link to jacobt.io",
     },
     {
       name: "Hobbes",
@@ -85,7 +85,7 @@ export default function Home() {
       link: "https://github.com/jacobtt21/hobbes",
       alt: "Hobbes Logo",
       image: "/hobbes-logo.png",
-      clicks: 0
+      label: "Link to the Hobbes Github Repo",
     }
   ]
 
@@ -201,7 +201,7 @@ export default function Home() {
         <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Work I&apos;ve shipped that I am proud of. Feel free to check them out.</p>
         <div className="grid sm:grid-cols-2 gap-4 px-4">
           {projects.map((project, index) => (
-            <Link onClick={addClick(project.name)} href={project.link} key={index}>
+            <Link aria-label={project.label} onClick={addClick(project.name)} href={project.link} key={index}>
               <div className="group bg-gradient-to-r h-48 from-indigo-500 to-indigo-300 p-[1px] rounded-lg">
                 <div className={`rounded-lg h-full px-4 pt-4 transition-all ${theme === "dark" ? "bg-slate-800 group-hover:bg-slate-700" : "bg-slate-100 group-hover:bg-slate-200"}`}>
                   <Image
