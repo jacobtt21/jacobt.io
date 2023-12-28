@@ -145,9 +145,9 @@ export default function Home() {
 
       <section className="sm:mt-6 p-4 w-full z-20">
         <div className="bg-gradient-to-r from-indigo-500 to-indigo-300 mx-auto w-full sm:w-[50%] p-[1px] rounded-lg">
-          <div className={`sm:flex items-center rounded-lg text-center sm:justify-between px-4 py-1 ${theme === "dark" ? "bg-slate-800" : "bg-slate-100"}`}>
-            <Link aria-label="Link to the homepage of Jacob Thomas" href="/"><code className="text-lg">hi@jacobt.io:~/$</code></Link>
-            <div className="mt-4 sm:mt-0 justify-center flex">
+          <div className={`sm:flex items-center rounded-lg text-center sm:justify-between px-4 pt-5 pb-2 sm:pt-2 ${theme === "dark" ? "bg-slate-800" : "bg-slate-100"}`}>
+            <Link aria-label="Link to the homepage of Jacob Thomas" href="/"><code className="text-lg mt-2">hi@jacobt.io:~/$</code></Link>
+            <div className="mt-2 sm:mt-0 justify-center flex">
               <div className="group gap-1 flex items-center">
                 <div className="hidden sm:block">
                   <p className="hidden text-[11px] group-hover:block"><code>{theme}</code></p>
