@@ -175,7 +175,7 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-xl font-semibold">Jacob Thomas</h2>
-                <div className={`text-[10px] font-semibold px-2 py-1 rounded ${theme === "dark" ? "bg-slate-800" : "bg-slate-100 border border-slate-200"}`}>
+                <div className={`text-[10px] font-semibold mt-2 px-2 py-1 rounded ${theme === "dark" ? "bg-slate-800" : "bg-slate-100 border border-slate-200"}`}>
                   <p>📍 College Station, TX</p>
                 </div>
               </div>
