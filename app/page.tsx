@@ -2,9 +2,12 @@
 
 import { useState, useEffect } from "react"
 
+import { createClient } from "@vercel/kv";
+
 import Link from "next/link"
 import Image from "next/image"
 import { Poppins } from "next/font/google"
+
 import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { IoMoon, IoSunny } from "react-icons/io5";
 
@@ -51,6 +54,41 @@ export default function Home() {
     },
   ]
 
+  const projects = [
+    {
+      name: "Oustro",
+      description: "Oustro is my startup that builds software for people and businesses.",
+      link: "https://www.oustro.xyz",
+      alt: "Oustro, LLC Logo",
+      image: "/oustro-logo.svg",
+      clicks: 0
+    },
+    {
+      name: "Ziggy",
+      description: "An AI tool to help businesses gather feedback in a conversational way.",
+      link: "https://www.useziggy.com",
+      alt: "Ziggy Logo",
+      image: "/ziggy-logo.svg",
+      clicks: 0
+    },
+    {
+      name: "jacobt.io",
+      description: "The personal website and portfolio that you are looking at.", 
+      link: "https://www.jacobt.io",
+      alt: "Jacob Thomas Logo",
+      image: "/jacobt-logo.png",
+      clicks: 0
+    },
+    {
+      name: "Hobbes",
+      description: "A Go CLI tool to help me keep track of KPIs for Oustro and Ziggy.",
+      link: "https://github.com/jacobtt21/hobbes",
+      alt: "Hobbes Logo",
+      image: "/hobbes-logo.png",
+      clicks: 0
+    }
+  ]
+
   const changeTheme = (theme: string | null | undefined) => {
     if (theme === "dark") {
       localStorage.setItem("theme", "light")
@@ -61,9 +99,37 @@ export default function Home() {
     }
   }
 
+  const addClick = (name: string) => async () => {
+    const kv = createClient({
+      url: process.env.NEXT_PUBLIC_KV_REST_API_URL as string,
+      token: process.env.NEXT_PUBLIC_KV_REST_API_TOKEN as string,
+    });
+
+    const clicks = await kv.get(name)
+    const newClicks = (clicks as number) + 1
+    await kv.set(name, newClicks)
+  }
+
+  const getViews = async () => {
+    const kv = createClient({
+      url: process.env.NEXT_PUBLIC_KV_REST_API_URL as string,
+      token: process.env.NEXT_PUBLIC_KV_REST_API_TOKEN as string,
+    });
+
+    let viewCount: number[] = []
+    for (const project of projects) {
+      const clicks = await kv.get(project.name)
+      viewCount.push(clicks as number);
+    }
+
+    setViews(viewCount)
+  }
+
   const [theme, setTheme] = useState<undefined | null | string>(undefined)
+  const [views, setViews] = useState<number[]>([])
 
   useEffect(() => {
+    getViews()
     setTheme(localStorage.getItem("theme") || "light")
   }, [])
 
@@ -128,9 +194,33 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="w-full sm:w-[50%] mx-auto">
+        <h3 className="mt-12 px-4 text-xl font-semibold">Featured Work</h3>
+        <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Work I've shipped that I am proud of. Feel free to check them out.</p>
+        <div className="grid sm:grid-cols-2 gap-4 px-4">
+          {projects.map((project, index) => (
+            <Link onClick={addClick(project.name)} href={project.link} key={index}>
+              <div className="group bg-gradient-to-r h-48 from-indigo-500 to-indigo-300 p-[1px] rounded-lg">
+                <div className={`rounded-lg h-full px-4 pt-4 transition-all ${theme === "dark" ? "bg-slate-800 group-hover:bg-slate-700" : "bg-slate-100 group-hover:bg-slate-200"}`}>
+                  <Image
+                  src={project.image}
+                  alt={project.alt}
+                  width={40}
+                  height={40}
+                  />
+                  <p className="mt-4 text-lg font-semibold">{project.name}</p>
+                  <p className="mt-2 text-sm">{project.description}</p>
+                  <p className="mt-5 text-xs pb-2"> {views.at(index)} Clicks</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section aria-label="This section is a carousel of both album covers and movie posters, they are rotating." className="w-full sm:w-[50%] mx-auto">
         <h3 className={`mt-12 border-t pt-4 px-4 text-xl font-semibold ${theme === "dark" ? "border-slate-700" : "border-slate-300"}`}>A Playlist Made by Me</h3>
-        <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Songs I liked at a certain point, hover to play.</p>
+        <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Songs I liked at a certain point, click to play.</p>
         <div className="group w-full inline-flex mt-6 flex-nowrap overflow-hidden sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
             {covers.map((cover, index) => (
@@ -142,6 +232,7 @@ export default function Home() {
                     alt={cover.alt}
                     width={200}
                     height={200}
+                    priority={true}
                     className="w-full z-0 rounded-xl opacity-100 hover:opacity-50 transition-all"
                     />
                   </Link>
@@ -164,6 +255,7 @@ export default function Home() {
                     alt={cover.alt}
                     width={200}
                     height={200}
+                    priority={true}
                     className="w-full z-0 rounded-xl opacity-100 hover:opacity-50 transition-all"
                     />
                   </Link>
