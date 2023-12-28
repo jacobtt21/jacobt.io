@@ -63,6 +63,7 @@ export default function Home() {
       alt: "Oustro, LLC Logo",
       image: "/oustro-logo.svg",
       label: "Link to oustro.xyz",
+      color: "from-indigo-500"
     },
     {
       name: "Ziggy",
@@ -71,6 +72,7 @@ export default function Home() {
       alt: "Ziggy Logo",
       image: "/ziggy-logo.svg",
       label: "Link to useziggy.com",
+      color: "from-sky-400"
     },
     {
       name: "jacobt.io",
@@ -79,6 +81,7 @@ export default function Home() {
       alt: "Jacob Thomas Logo",
       image: "/jacobt-logo.png",
       label: "Link to jacobt.io",
+      color: "from-neutral-700"
     },
     {
       name: "Hobbes",
@@ -87,6 +90,7 @@ export default function Home() {
       alt: "Hobbes Logo",
       image: "/hobbes-logo.png",
       label: "Link to the Hobbes Github Repo",
+      color: "from-purple-600"
     }
   ]
 
@@ -203,7 +207,7 @@ export default function Home() {
         <div className="grid mt-6 sm:grid-cols-2 gap-4 px-4">
           {projects.map((project, index) => (
             <Link aria-label={project.label} onClick={addClick(project.name)} href={project.link} key={index}>
-              <div className="group bg-gradient-to-r from-indigo-500 to-indigo-300 p-[1px] rounded-lg">
+              <div className={`${index % 2 === 0 ? "group bg-gradient-to-r "+project.color+" to-indigo-200" : "group bg-gradient-to-l "+project.color+" to-indigo-200"} p-[1px] rounded-lg`}>
                 <div className={`rounded-lg h-full px-4 py-4 transition-all ${theme === "dark" ? "bg-slate-800 group-hover:bg-slate-700" : "bg-slate-100 group-hover:bg-slate-200"}`}>
                   <Image
                   src={project.image}
