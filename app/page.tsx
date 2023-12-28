@@ -8,8 +8,9 @@ import Link from "next/link"
 import Image from "next/image"
 import { Poppins } from "next/font/google"
 
-import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaXTwitter, FaGithub, FaLinkedin, FaArrowRight } from "react-icons/fa6";
 import { IoMoon, IoSunny } from "react-icons/io5";
+import { HiCursorClick } from "react-icons/hi";
 
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['500'] })
@@ -65,7 +66,7 @@ export default function Home() {
     },
     {
       name: "Ziggy",
-      description: "An AI tool to help businesses gather feedback in a conversational way.",
+      description: "Ziggy is an AI tool to help gather feedback in a conversational way.",
       link: "https://www.useziggy.com",
       alt: "Ziggy Logo",
       image: "/ziggy-logo.svg",
@@ -73,7 +74,7 @@ export default function Home() {
     },
     {
       name: "jacobt.io",
-      description: "The personal website and portfolio that you are looking at.", 
+      description: "The website you're currently looking at.", 
       link: "https://www.jacobt.io",
       alt: "Jacob Thomas Logo",
       image: "/jacobt-logo.png",
@@ -81,7 +82,7 @@ export default function Home() {
     },
     {
       name: "Hobbes",
-      description: "A Go CLI tool to help me keep track of KPIs for Oustro and Ziggy.",
+      description: "Hobbes is a CLI written in Go to track KPIs for Oustro and Ziggy.",
       link: "https://github.com/jacobtt21/hobbes",
       alt: "Hobbes Logo",
       image: "/hobbes-logo.png",
@@ -170,8 +171,8 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-xl font-semibold">Jacob Thomas</h2>
-                <div className={`text-[10px] font-semibold px-2 py-1 rounded ${theme === "dark" ? "bg-slate-700" : "bg-slate-200"}`}>
-                  📍 College Station, TX
+                <div className={`text-[10px] font-semibold px-2 py-1 rounded ${theme === "dark" ? "bg-slate-800" : "bg-slate-100 border border-slate-200"}`}>
+                  <p>📍 College Station, TX</p>
                 </div>
               </div>
               <p className="text-xs text-gray-500"><Link aria-label="Link to Oustro LLC's twitter" href="https://twitter.com/oustrohq" className="underline">@Oustro</Link> CEO</p>
@@ -197,22 +198,24 @@ export default function Home() {
       </section>
 
       <section className="w-full sm:w-[50%] mx-auto">
-        <h3 className="mt-12 px-4 text-xl font-semibold">Featured Work</h3>
-        <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Work I&apos;ve shipped that I am proud of. Feel free to check them out.</p>
+        <h3 className="mt-8 px-4 text-xl font-semibold">Featured Work</h3>
+        <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Stuff I&apos;ve shipped and am proud of. Feel free to check it out.</p>
         <div className="grid sm:grid-cols-2 gap-4 px-4">
           {projects.map((project, index) => (
             <Link aria-label={project.label} onClick={addClick(project.name)} href={project.link} key={index}>
-              <div className="group bg-gradient-to-r h-48 from-indigo-500 to-indigo-300 p-[1px] rounded-lg">
-                <div className={`rounded-lg h-full px-4 pt-4 transition-all ${theme === "dark" ? "bg-slate-800 group-hover:bg-slate-700" : "bg-slate-100 group-hover:bg-slate-200"}`}>
+              <div className="group bg-gradient-to-r from-indigo-500 to-indigo-300 p-[1px] rounded-lg">
+                <div className={`rounded-lg h-full px-4 py-4 transition-all ${theme === "dark" ? "bg-slate-800 group-hover:bg-slate-700" : "bg-slate-100 group-hover:bg-slate-200"}`}>
                   <Image
                   src={project.image}
                   alt={project.alt}
                   width={40}
                   height={40}
                   />
-                  <p className="mt-4 text-lg font-semibold">{project.name}</p>
+                  <p className="mt-4 group-hover:underline text-lg font-semibold flex items-center gap-1">{project.name}<span className="hidden text-sm group-hover:block"><FaArrowRight /></span></p>
                   <p className="mt-2 text-sm">{project.description}</p>
-                  <p className="mt-5 text-xs pb-2"> {views.at(index)} Clicks</p>
+                  <div className={`mt-5 text-xs inline-block px-2 py-1 bg-slate rounded ${theme === "dark" ? "group-hover:bg-slate-800 bg-slate-700" : "group-hover:bg-slate-100 bg-slate-200"}`}>
+                    <p className="flex items-center gap-1"><HiCursorClick /> {views.at(index)}</p>
+                  </div>
                 </div>
               </div>
             </Link>
@@ -221,8 +224,8 @@ export default function Home() {
       </section>
 
       <section aria-label="This section is a carousel of both album covers and movie posters, they are rotating." className="w-full sm:w-[50%] mx-auto">
-        <h3 className={`mt-12 border-t pt-4 px-4 text-xl font-semibold ${theme === "dark" ? "border-slate-700" : "border-slate-300"}`}>The Little Playlist</h3>
-        <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Songs I liked at a certain point, click to play.</p>
+        <h3 className={`mt-12 border-t pt-4 px-4 text-xl font-semibold ${theme === "dark" ? "border-slate-700" : "border-slate-300"}`}>The Playlist</h3>
+        <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Music I enjoy, click to play.</p>
         <div className="group w-full inline-flex mt-6 flex-nowrap overflow-hidden sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
             {covers.map((cover, index) => (
@@ -273,7 +276,7 @@ export default function Home() {
       </section>
       
       <section className="sm:w-[50%] mx-auto text-center p-4 relative mt-20 z-0">
-        <p className="text-xs mt-8 text-gray-600">© 2024 Jacob Thomas. <Link aria-label="Link to the source repo" href="https://github.com/jacobtt21/jacobt.io" className="underline">Source on Github.</Link></p>
+        <p className="text-xs mt-8 text-gray-600">© 2024 Jacob Thomas. <Link aria-label="Link to the source repo" href="https://github.com/jacobtt21/jacobt.io" className="underline">Source on GitHub.</Link></p>
       </section>
 
     </main>
