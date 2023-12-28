@@ -72,11 +72,13 @@ export default function Home() {
 
       <section className="p-4 w-full z-20">
         <div className="bg-gradient-to-r from-indigo-500 to-indigo-300 mt-12 mx-auto w-full sm:w-[50%] p-[1px] rounded-lg">
-          <div className={`shadow-sm flex items-center rounded-lg flex justify-between px-4 py-1 ${theme === "dark" ? "bg-slate-800" : "bg-slate-100"}`}>
-            <Link aria-label="Link to the homepage of Jacob Thomas" href="/"><code className="text-xs sm:text-lg">/~ $ jacobt.io </code></Link>
-            <div className="flex">
+          <div className={`sm:flex items-center rounded-lg text-center sm:justify-between px-4 py-1 ${theme === "dark" ? "bg-slate-800" : "bg-slate-100"}`}>
+            <Link aria-label="Link to the homepage of Jacob Thomas" href="/"><code className="text-lg">hi@jacobt.io:~/$</code></Link>
+            <div className="mt-4 sm:mt-0 justify-center flex">
               <div className="group gap-1 flex items-center">
-                <h1 className="hidden text-[11px] group-hover:block"><code>{theme}</code></h1>
+                <div className="hidden sm:block">
+                  <p className="hidden text-[11px] group-hover:block"><code>{theme}</code></p>
+                </div>
                 <button aria-label="Button to change the theme of the site" onClick={() => changeTheme(theme)} className={`transition rounded p-3 flex items-center gap-2 ${theme === "dark" ? "hover:bg-slate-700" : "hover:bg-slate-200"}`}>
                   {theme === "dark" ? (
                     <IoMoon />
@@ -85,7 +87,6 @@ export default function Home() {
                   )}
                 </button>
               </div>
-
               <Link aria-label="Twitter link for Jacob Thomas" href="https://twitter.com/0xjacobt" className={`transition rounded p-3 flex items-center gap-2 ${theme === "dark" ? "hover:bg-slate-700" : "hover:bg-slate-200"}`}><FaTwitter /></Link>
               <Link aria-label="Github link for Jacob Thomas" href="https://github.com/jacobtt21" className={`transition rounded p-3 flex items-center gap-2 ${theme === "dark" ? "hover:bg-slate-700" : "hover:bg-slate-200"}`}><FaGithub /></Link>
               <Link aria-label="Linkedin link for Jacob Thomas" href="https://www.linkedin.com/in/jacobt1206/" className={`transition rounded p-3 flex items-center gap-2 ${theme === "dark" ? "hover:bg-slate-700" : "hover:bg-slate-200"}`}><FaLinkedin /></Link>
