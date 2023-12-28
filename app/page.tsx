@@ -98,7 +98,7 @@ export default function Home() {
               <div className="flex items-center gap-2">
                 <h2 className="text-xl font-semibold">Jacob Thomas</h2>
                 <div className={`text-[10px] font-semibold px-2 py-1 rounded ${theme === "dark" ? "bg-slate-700" : "bg-slate-200"}`}>
-                  📍 Santiago, Chile
+                  📍 College Station, TX
                 </div>
               </div>
               <p className="text-xs text-gray-500"><Link aria-label="Link to Oustro LLC's twitter" href="https://twitter.com/oustrohq" className="underline">@Oustro</Link> CEO</p>
@@ -108,7 +108,7 @@ export default function Home() {
             <p className={`text-md mt-8 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Product enthusiast, creative, and investor based in TX.</p>
             <p className={`text-md mt-8 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>I am passionate about technology and design. I believe there is more to come, and I am excited to contribute.</p>
             <p className={`text-md mt-8 text-md mt-10 flex items-center ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>
-              Currently working at 
+              Currently working at
               <Link aria-label="Link to oustro.xyz" href="https://www.oustro.xyz" className={`ml-1 flex gap-0.5 items-center ${theme === "light" && "text-black"}`}>
                 <Image
                 src="/oustro-logo.svg"
@@ -117,23 +117,16 @@ export default function Home() {
                 height={24}
                 />
                 <span className={poppins.className}>Oustro</span>
-              </Link>, on 
-              <Link aria-label="Link to useziggy.com" href="https://www.useziggy.com" className={`ml-1 flex gap-2 font-semibold items-center ${theme === "light" && "text-black"}`}>
-                <Image
-                src="/ziggy-logo.svg"
-                alt="Ziggy by Oustro, LLC logo"
-                width={30}
-                height={30}
-                />
-                Ziggy
               </Link>.
             </p>
           </div>
         </div>
       </section>
 
-      <section aria-label="This section is a carousel of both album covers and movie posters, they are rotating." className="w-full sm:w-[80%] mx-auto">
-        <div className="group w-full inline-flex mt-12 sm:mt-20 flex-nowrap overflow-hidden sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+      <section aria-label="This section is a carousel of both album covers and movie posters, they are rotating." className="w-full sm:w-[50%] mx-auto">
+        <h3 className={`mt-12 border-t pt-4 px-4 text-xl font-semibold ${theme === "dark" ? "border-slate-700" : "border-slate-300"}`}>A Playlist Made by Me</h3>
+        <p className="pt-2 px-4 mx-auto text-sm pb-4">Songs I liked at a certain point, hover to play</p>
+        <div className="group w-full inline-flex mt-6 flex-nowrap overflow-hidden sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
             {covers.map((cover, index) => (
               <li key={index}>
