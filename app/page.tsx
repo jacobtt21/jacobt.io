@@ -18,28 +18,32 @@ export default function Home() {
       artist: "Jack Harlow",
       picture: "/songs/wp.png",
       alt: "Sweet Actions by Jack Harlow Album Cover",
-      contrast: false
+      contrast: false,
+      link: "https://www.youtube.com/watch?v=w9uWPBDHEKE"
     },
     {
       title: "MONACO",
       artist: "Bad Bunny",
       picture: "/songs/monaco.png",
       alt: "Nadie Sabe Lo Que Va a Pasar Mañana by Bad Bunny Album Cover",
-      contrast: false
+      contrast: false,
+      link: "https://www.youtube.com/watch?v=_PJvpq8uOZM"
     },
     {
       title: "Yes Indeed",
       artist: "Lil Baby, Drake",
       picture: "/songs/yi.png",
       alt: "Harder Than Ever by Lil Baby Album Cover",
-      contrast: false
+      contrast: false,
+      link: "https://www.youtube.com/watch?v=QknbZV_suzg"
     },
     {
       title: "On The Radar Freestyle",
       artist: "Drake, Central Cee",
       picture: "/songs/otrf.png",
       alt: "On The Radar Freestyle by Drake, Central Cee Single Cover",
-      contrast: true
+      contrast: true,
+      link: "https://www.youtube.com/watch?v=cfX1QlfxTBI"
     },
   ]
 
@@ -64,12 +68,12 @@ export default function Home() {
 
       <section className="p-4 w-full z-20">
         <div className="bg-gradient-to-r from-indigo-500 to-indigo-300 mt-12 mx-auto w-full sm:w-[50%] p-[1px] rounded-lg">
-          <div className={`shadow-sm border-2 border-slate-100 flex items-center rounded-lg flex justify-between px-4 py-1 ${theme === "dark" ? "bg-slate-800" : "bg-slate-100"}`}>
-            <Link aria-label="Link to the homepage of Jacob Thomas" href="/"><code className="">~/ $ jacobt.io </code></Link>
+          <div className={`shadow-sm flex items-center rounded-lg flex justify-between px-4 py-1 ${theme === "dark" ? "bg-slate-800" : "bg-slate-100"}`}>
+            <Link aria-label="Link to the homepage of Jacob Thomas" href="/"><code className="text-xs sm:text-lg">/~ $ jacobt.io </code></Link>
             <div className="flex">
               <div className="group gap-1 flex items-center">
-                <p className="hidden text-[11px] group-hover:block"><code>{theme}</code></p>
-                <button aria-label="Button to change the theme of the site" onClick={() => changeTheme(theme)} className="hover:bg-slate-200 transition rounded p-3 flex items-center gap-2">
+                <h1 className="hidden text-[11px] group-hover:block"><code>{theme}</code></h1>
+                <button aria-label="Button to change the theme of the site" onClick={() => changeTheme(theme)} className={`transition rounded p-3 flex items-center gap-2 ${theme === "dark" ? "hover:bg-slate-700" : "hover:bg-slate-200"}`}>
                   {theme === "dark" ? (
                     <IoMoon />
                   ) : (
@@ -78,9 +82,9 @@ export default function Home() {
                 </button>
               </div>
 
-              <Link aria-label="Twitter link for Jacob Thomas" href="https://twitter.com/0xjacobt" className="hover:bg-slate-200 transition rounded p-3 flex items-center gap-2"><FaTwitter /></Link>
-              <Link aria-label="Github link for Jacob Thomas" href="https://github.com/jacobtt21" className="hover:bg-slate-200 transition rounded p-3 flex items-center gap-2"><FaGithub /></Link>
-              <Link aria-label="Linkedin link for Jacob Thomas" href="https://www.linkedin.com/in/jacobt1206/" className="hover:bg-slate-200 transition rounded p-3 flex items-center gap-2"><FaLinkedin /></Link>
+              <Link aria-label="Twitter link for Jacob Thomas" href="https://twitter.com/0xjacobt" className={`transition rounded p-3 flex items-center gap-2 ${theme === "dark" ? "hover:bg-slate-700" : "hover:bg-slate-200"}`}><FaTwitter /></Link>
+              <Link aria-label="Github link for Jacob Thomas" href="https://github.com/jacobtt21" className={`transition rounded p-3 flex items-center gap-2 ${theme === "dark" ? "hover:bg-slate-700" : "hover:bg-slate-200"}`}><FaGithub /></Link>
+              <Link aria-label="Linkedin link for Jacob Thomas" href="https://www.linkedin.com/in/jacobt1206/" className={`transition rounded p-3 flex items-center gap-2 ${theme === "dark" ? "hover:bg-slate-700" : "hover:bg-slate-200"}`}><FaLinkedin /></Link>
             </div>
           </div>
         </div>
@@ -91,7 +95,12 @@ export default function Home() {
           <div className="flex items-center gap-5">
             <div className="bg-gradient-to-r from-indigo-500 to-indigo-300 rounded-full h-12 w-12 -z-10"></div>
             <div>
-              <h2 className="text-xl font-semibold">Jacob Thomas</h2>
+              <div className="flex items-center gap-2">
+                <h2 className="text-xl font-semibold">Jacob Thomas</h2>
+                <div className={`text-[10px] font-semibold px-2 py-1 rounded ${theme === "dark" ? "bg-slate-700" : "bg-slate-200"}`}>
+                  📍 Santiago, Chile
+                </div>
+              </div>
               <p className="text-xs text-gray-500"><Link aria-label="Link to Oustro LLC's twitter" href="https://twitter.com/oustrohq" className="underline">@Oustro</Link> CEO</p>
             </div>
           </div>
@@ -124,18 +133,20 @@ export default function Home() {
       </section>
 
       <section aria-label="This section is a carousel of both album covers and movie posters, they are rotating." className="w-full sm:w-[80%] mx-auto">
-        <div className="w-full inline-flex mt-12 sm:mt-20 flex-nowrap overflow-hidden sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll" aria-hidden="true">
+        <div className="group w-full inline-flex mt-12 sm:mt-20 flex-nowrap overflow-hidden sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
             {covers.map((cover, index) => (
               <li key={index}>
                 <div className="rounded-xl w-48">
-                  <Image
-                  src={cover.picture}
-                  alt={cover.alt}
-                  width={200}
-                  height={200}
-                  className="w-full z-0 rounded-xl"
-                  />
+                  <Link href={cover.link}>
+                    <Image
+                    src={cover.picture}
+                    alt={cover.alt}
+                    width={200}
+                    height={200}
+                    className="w-full z-0 rounded-xl opacity-100 hover:opacity-50 transition-all"
+                    />
+                  </Link>
                   <div className={`backdrop-blur rounded-b-xl h-16 from-white-50 p-4 -mt-16 z-10 text-sm ${cover.contrast ? "text-white" : "text-black"}`}>
                     <p className="font-semibold">{cover.title}</p>
                     <p>{cover.artist}</p>
@@ -145,17 +156,19 @@ export default function Home() {
             ))}
           </ul>
       
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll" aria-hidden="true">
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
             {covers.map((cover, index) => (
               <li key={index}>
                 <div className="rounded-xl w-48">
-                  <Image
-                  src={cover.picture}
-                  alt={cover.alt}
-                  width={200}
-                  height={200}
-                  className="w-full z-0 rounded-xl"
-                  />
+                  <Link href={cover.link}>
+                    <Image
+                    src={cover.picture}
+                    alt={cover.alt}
+                    width={200}
+                    height={200}
+                    className="w-full z-0 rounded-xl opacity-100 hover:opacity-50 transition-all"
+                    />
+                  </Link>
                   <div className={`backdrop-blur rounded-b-xl h-16 from-white-50 p-4 -mt-16 z-10 text-sm ${cover.contrast ? "text-white" : "text-black"}`}>
                     <p className="font-semibold">{cover.title}</p>
                     <p>{cover.artist}</p>
