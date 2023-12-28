@@ -175,7 +175,7 @@ export default function Home() {
                   <p>📍 College Station, TX</p>
                 </div>
               </div>
-              <p className="text-xs text-gray-500"><Link aria-label="Link to Oustro LLC's twitter" href="https://twitter.com/oustrohq" className="underline">@Oustro</Link> CEO & CS student @ TAMU</p>
+              <p className="text-xs text-gray-500"><Link aria-label="Link to Oustro LLC's twitter" href="https://twitter.com/oustrohq" className="underline">@oustrohq</Link> CEO & CS student @ TAMU</p>
             </div>
           </div>
           <div>
