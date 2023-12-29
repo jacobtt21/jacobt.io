@@ -12,18 +12,28 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true || github.ref == 'refs/heads/main'
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Step for Merged PR
+        if: github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.ref == 'refs/heads/main'
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: release-v.MR.${{ github.run_number }}
+          release_name: v.MR.${{ github.run_number }}
+          draft: false
+          prerelease: false
+
     - name: Create Release
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: release-v.0.${{ github.run_number }}.${{ github.run_attempt }}
-        release_name: v.0.${{ github.run_number }}.${{ github.run_attempt }}
+        tag_name: release-v.LR.${{ github.run_number }}
+        release_name: v.LR.${{ github.run_number }}
         draft: false
         prerelease: false
