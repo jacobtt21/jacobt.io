@@ -81,7 +81,7 @@ export default function Home() {
       alt: "Jacob Thomas Logo",
       image: "/jacobt-logo.png",
       label: "Link to jacobt.io",
-      color: "from-neutral-700"
+      color: "from-green-500"
     },
     {
       name: "Hobbes",
@@ -207,7 +207,7 @@ export default function Home() {
         <div className="grid mt-6 sm:grid-cols-2 gap-4 px-4">
           {projects.map((project, index) => (
             <Link aria-label={project.label} onClick={addClick(project.name)} href={project.link} key={index}>
-              <div className={`${index % 2 === 0 ? "group bg-gradient-to-r "+project.color+" to-indigo-200" : "group bg-gradient-to-l "+project.color+" to-indigo-200"} p-[1px] rounded-lg`}>
+              <div className={`${index % 2 === 0 ? "bg-gradient-to-l "+project.color : "bg-gradient-to-r "+project.color} to-transparent group p-[1px] rounded-lg transition-all`}>
                 <div className={`rounded-lg h-full px-4 py-4 transition-all ${theme === "dark" ? "bg-slate-800 group-hover:bg-slate-700" : "bg-slate-100 group-hover:bg-slate-200"}`}>
                   <Image
                   src={project.image}
