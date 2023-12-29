@@ -289,7 +289,7 @@ export default function Home() {
       </section>
       
       <section className="sm:w-[50%] mx-auto text-center p-4 relative mt-20 z-0">
-        <p className="text-xs mt-8 text-gray-600">© 2024 Jac/ob Thomas. <Link aria-label="Link to the source repo" href="https://github.com/jacobtt21/jacobt.io" className="underline">Source on GitHub.</Link></p>
+        <p className="text-xs mt-8 text-gray-600">© 2024 Jacob Thomas. <Link aria-label="Link to the source repo" href="https://github.com/jacobtt21/jacobt.io" className="underline">Source on GitHub.</Link></p>
       </section>
 
     </main>
