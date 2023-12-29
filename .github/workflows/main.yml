@@ -18,13 +18,29 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Count PRs
-      id: pr_count
-      run: echo "PR_COUNT=$(gh pr list --state merged | wc -l)" >> $GITHUB_ENV
+    - name: Set up Git Tags
+      run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
-    - name: Count Commits
-      id: commit_count
-      run: echo "COMMIT_COUNT=$(git rev-list --count HEAD)" >> $GITHUB_ENV
+    - name: Get Current Version
+      id: get_version
+      run: |
+        TAG=$(git describe --tags --abbrev=0)
+        echo "CURRENT_VERSION=$TAG" >> $GITHUB_ENV
+        echo "CURRENT_VERSION=$TAG" >> $GITHUB_OUTPUT
+
+    - name: Increment Version
+      id: increment_version
+      run: |
+        IFS='.' read -ra VER <<< "${{ steps.get_version.outputs.CURRENT_VERSION }}"
+        if [ "${{ github.event_name }}" == "push" ]; then
+          ((VER[2]++))
+        else
+          ((VER[1]++))
+          VER[2]=0
+        fi
+        NEW_TAG="v0.${VER[1]}.${VER[2]}"
+        echo "NEW_TAG=$NEW_TAG" >> $GITHUB_ENV
+        echo "NEW_TAG=$NEW_TAG" >> $GITHUB_OUTPUT
 
     # Add steps for your build/testing here
 
@@ -33,7 +49,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v0.${{ env.PR_COUNT }}.${{ env.COMMIT_COUNT }}
-        release_name: Release v0.${{ env.PR_COUNT }}.${{ env.COMMIT_COUNT }}
+        tag_name: ${{ steps.increment_version.outputs.NEW_TAG }}
+        release_name: Release ${{ steps.increment_version.outputs.NEW_TAG }}
         draft: false
         prerelease: false
