@@ -16,24 +16,24 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Step for Merged PR
-        if: github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.ref == 'refs/heads/main'
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: release-v.MR.${{ github.run_number }}
-          release_name: v.MR.${{ github.run_number }}
-          draft: false
-          prerelease: false
+    - name: Create Release on PR Merge
+      if: github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.ref == 'refs/heads/main'
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: release-PR-${{ github.run_number }}
+        release_name: Merge Release ${{ github.run_number }}
+        draft: false
+        prerelease: false
 
-    - name: Create Release
+    - name: Create Release on Push
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: release-v.LR.${{ github.run_number }}
-        release_name: v.LR.${{ github.run_number }}
+        tag_name: release-Push-${{ github.run_number }}
+        release_name: Push Release ${{ github.run_number }}
         draft: false
         prerelease: false
