@@ -1,0 +1,39 @@
+name: Create Releases
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true || github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Count PRs
+      id: pr_count
+      run: echo "PR_COUNT=$(gh pr list --state merged | wc -l)" >> $GITHUB_ENV
+
+    - name: Count Commits
+      id: commit_count
+      run: echo "COMMIT_COUNT=$(git rev-list --count HEAD)" >> $GITHUB_ENV
+
+    # Add steps for your build/testing here
+
+    - name: Create Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v0.${{ env.PR_COUNT }}.${{ env.COMMIT_COUNT }}
+        release_name: Release v0.${{ env.PR_COUNT }}.${{ env.COMMIT_COUNT }}
+        draft: false
+        prerelease: false
