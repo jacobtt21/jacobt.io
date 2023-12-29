@@ -36,6 +36,15 @@ export default function Home() {
       label: "Link to the youtube video of MONACO by Bad Bunny"
     },
     {
+      title: "Funkytown",
+      artist: "Lipps Inc.",
+      picture: "/songs/ft.png",
+      alt: "Mouth to Mouth by Lipps Inc. Album Cover",
+      contrast: true,
+      link: "https://www.youtube.com/watch?v=Z6dqIYKIBSU&pp=ygUJZnVua3l0b3dt",
+      label: "Link to the youtube video of Funkytown by Lipps Inc."
+    },
+    {
       title: "Yes Indeed",
       artist: "Lil Baby, Drake",
       picture: "/songs/yi.png",
@@ -52,7 +61,7 @@ export default function Home() {
       contrast: true,
       link: "https://www.youtube.com/watch?v=cfX1QlfxTBI",
       label: "Link to the youtube video of On The Radar Freestyle by Drake, Central Cee"
-    },
+    }
   ]
 
   const projects = [
@@ -231,10 +240,10 @@ export default function Home() {
         <h3 className={`mt-12 border-t pt-6 px-4 text-xl font-semibold ${theme === "dark" ? "border-slate-700" : "border-slate-300"}`}>The Playlist</h3>
         <p className={`pt-2 px-4 mx-auto text-sm pb-4 ${theme === "dark" ? "text-slate-500" : "text-gray-600"}`}>Music I enjoy, click to play.</p>
         <div className="group w-full inline-flex mt-6 flex-nowrap overflow-hidden sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
             {covers.map((cover, index) => (
               <li key={index}>
-                <div className="rounded-xl w-48">
+                <div className="w-48">
                   <Link aria-label={cover.label} href={cover.link}>
                     <Image
                     src={cover.picture}
@@ -242,10 +251,10 @@ export default function Home() {
                     width={200}
                     height={200}
                     priority={true}
-                    className="w-full z-0 rounded-xl opacity-100 hover:opacity-50 transition-all"
+                    className="w-full rounded-xl hover:opacity-50 transition-all"
                     />
                   </Link>
-                  <div className={`backdrop-blur rounded-b-xl h-16 from-white-50 p-4 -mt-16 z-10 text-sm ${cover.contrast ? "text-white" : "text-black"}`}>
+                  <div className={`backdrop-blur rounded-b-xl h-16 from-white-50 p-4 -mt-16 text-sm ${cover.contrast ? "text-white" : "text-black"}`}>
                     <p className="font-semibold">{cover.title}</p>
                     <p>{cover.artist}</p>
                   </div>
@@ -254,10 +263,10 @@ export default function Home() {
             ))}
           </ul>
       
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
             {covers.map((cover, index) => (
               <li key={index}>
-                <div className="rounded-xl w-48">
+                <div className="w-48">
                   <Link aria-label={cover.label} href={cover.link}>
                     <Image
                     src={cover.picture}
@@ -265,10 +274,10 @@ export default function Home() {
                     width={200}
                     height={200}
                     priority={true}
-                    className="w-full z-0 rounded-xl opacity-100 hover:opacity-50 transition-all"
+                    className="w-full rounded-xl hover:opacity-50 transition-all"
                     />
                   </Link>
-                  <div className={`backdrop-blur rounded-b-xl h-16 from-white-50 p-4 -mt-16 z-10 text-sm ${cover.contrast ? "text-white" : "text-black"}`}>
+                  <div className={`backdrop-blur rounded-b-xl h-16 from-white-50 p-4 -mt-16 text-sm ${cover.contrast ? "text-white" : "text-black"}`}>
                     <p className="font-semibold">{cover.title}</p>
                     <p>{cover.artist}</p>
                   </div>
