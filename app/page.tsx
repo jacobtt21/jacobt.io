@@ -224,7 +224,7 @@ export default function Home() {
                   width={40}
                   height={40}
                   />
-                  <p className="mt-4 group-hover:underline text-lg font-semibold flex items-center gap-1">{project.name}<span className="hidden text-sm group-hover:block"><FaArrowRight /></span></p>
+                  <p className="mt-4 group-hover:underline transition-all text-lg font-semibold flex items-center gap-1">{project.name}<span className="text-sm group-hover:translate-x-1 transition-transform"><FaArrowRight /></span></p>
                   <p className="mt-2 text-sm">{project.description}</p>
                   <div className={`mt-5 text-xs inline-block px-2 py-1 bg-slate rounded ${theme === "dark" ? "group-hover:bg-slate-800 bg-slate-700" : "group-hover:bg-slate-100 bg-slate-200"}`}>
                     <p className="flex items-center gap-1"><HiCursorClick /> {views.at(index)}</p>
@@ -243,7 +243,7 @@ export default function Home() {
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
             {covers.map((cover, index) => (
               <li key={index}>
-                <div className="w-48">
+                <div className="group/cover w-48">
                   <Link aria-label={cover.label} href={cover.link}>
                     <Image
                     src={cover.picture}
@@ -254,9 +254,9 @@ export default function Home() {
                     className="w-full rounded-xl hover:opacity-50 transition-all"
                     />
                   </Link>
-                  <div className={`backdrop-blur rounded-b-xl h-16 from-white-50 p-4 -mt-16 text-sm ${cover.contrast ? "text-white" : "text-black"}`}>
-                    <p className="font-semibold">{cover.title}</p>
-                    <p>{cover.artist}</p>
+                  <div className={`backdrop-blur rounded-b-xl h-16 from-white-50 p-2 -mt-16 ${cover.contrast ? "text-white" : "text-black"}`}>
+                    <p className="font-semibold group-hover/cover:text-[15px] text-sm transition-all">{cover.title}</p>
+                    <p className="text-sm">{cover.artist}</p>
                   </div>
                 </div>
               </li>
@@ -266,7 +266,7 @@ export default function Home() {
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
             {covers.map((cover, index) => (
               <li key={index}>
-                <div className="w-48">
+                <div className="group/cover w-48">
                   <Link aria-label={cover.label} href={cover.link}>
                     <Image
                     src={cover.picture}
@@ -277,9 +277,9 @@ export default function Home() {
                     className="w-full rounded-xl hover:opacity-50 transition-all"
                     />
                   </Link>
-                  <div className={`backdrop-blur rounded-b-xl h-16 from-white-50 p-4 -mt-16 text-sm ${cover.contrast ? "text-white" : "text-black"}`}>
-                    <p className="font-semibold">{cover.title}</p>
-                    <p>{cover.artist}</p>
+                  <div className={`backdrop-blur rounded-b-xl h-16 from-white-50 p-2 -mt-16 ${cover.contrast ? "text-white" : "text-black"}`}>
+                    <p className="font-semibold group-hover/cover:text-[15px] text-sm transition-all">{cover.title}</p>
+                    <p className="text-sm">{cover.artist}</p>
                   </div>
                 </div>
               </li>
