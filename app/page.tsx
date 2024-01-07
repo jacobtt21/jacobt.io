@@ -84,12 +84,12 @@ export default function Home() {
       color: "from-sky-400"
     },
     {
-      name: "jacobt.io",
-      description: "The website you're currently looking at.", 
-      link: "https://www.jacobt.io",
-      alt: "Jacob Thomas Logo",
-      image: "/jacobt-logo.png",
-      label: "Link to jacobt.io",
+      name: "Portfoliwoah",
+      description: "An open source platform to display portfolios and projects.", 
+      link: "https://www.portfoliwoah.io",
+      alt: "Portfoliwoah Logo",
+      image: "https://www.portfoliwoah.io/_next/image?url=%2FuserIcon.png&w=96&q=75",
+      label: "Link to portfoliwoah.io",
       color: "from-green-500"
     },
     {
