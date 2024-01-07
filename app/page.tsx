@@ -88,7 +88,7 @@ export default function Home() {
       description: "An open source platform to display portfolios and projects.", 
       link: "https://www.portfoliwoah.io",
       alt: "Portfoliwoah Logo",
-      image: "https://www.portfoliwoah.io/_next/image?url=%2FuserIcon.png&w=96&q=75",
+      image: "/portfoliwoah-logo.png",
       label: "Link to portfoliwoah.io",
       color: "from-green-500"
     },
