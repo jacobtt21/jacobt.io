@@ -146,7 +146,7 @@ export default function Home() {
 
   useEffect(() => {
     getViews()
-    setTheme(localStorage.getItem("theme") || "light")
+    setTheme(localStorage.getItem("theme") || "dark")
   }, [])
 
   return (
